@@ -1,0 +1,37 @@
+body {
+    background-color: aliceblue;
+    /* margin-top: 8%;
+    margin-bottom: 10%;
+    margin-left: 35%;
+    margin-right: 10%; */
+
+    /* margin: 10%; */
+}
+
+.login {
+    padding: 10%;
+    border: 2px solid black;
+}
+
+.login form {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+
+.login input {
+    width: 500px;
+    height: 15px;
+}
+
+.login button {
+    color: white;
+    background-color: brown;
+    /* size: 50px; */
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px 30px;
+}
+
+.Home {
+    padding: 10px 10px;
+    margin: 10px;
+}
