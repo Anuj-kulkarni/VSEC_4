@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marksheet Portal</title>
+    <link rel="Stylesheet" href="style.css">
+</head>
+<body>
+    <h1>India Council Of Marksheet</h1>
+    <form id="Marks">
+        <label class="Username">
+            Enter Your Name: <input type="text" placeholder="Your Name Here !!" style="width: 200px; height: 20px;" required>
+        </label>
+        <br><br>
+
+        <label class="marks">
+            Enter Your Physics Marks: <input type="number" min="0" max="100" placeholder="Physics Marks" id="Phy" style="width: 100px; height: 20px;" required>
+        </label>
+        <br><br>
+
+        <label class="marks">
+            Enter Your Chemsitry Marks: <input type="number" min="0" max="100" placeholder="Chemsitry Marks" id="chem" style="width: 120px; height: 20px;" required>
+        </label>
+        <br><br>
+
+        <label class="marks">
+            Enter Your Mathematics Marks: <input type="number" min="0" max="100" placeholder="Mathematics Marks" id="math" style="width: 150px; height: 20px;" required>
+        </label>
+        <br><br>
+
+        <h3 id="result"></h3>
+        <h3 id="percentage"></h3>
+        <!-- <br><br> -->
+
+        <button type="submit">Submit</button>
+    </form>
+    
+
+<script src="marks.js"></script>
+</body>
+</html>
