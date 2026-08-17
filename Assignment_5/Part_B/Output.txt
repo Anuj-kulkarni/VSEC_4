@@ -1,0 +1,7 @@
+{
+  _id: ObjectId('6a82a873bb6fe614f6c7a9a2'),
+  name: 'Anuj',
+  Div: 'A',
+  branch: 'IT',
+  roll_no: NumberInt('110')
+}

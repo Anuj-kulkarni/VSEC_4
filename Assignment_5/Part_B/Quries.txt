@@ -1,0 +1,47 @@
+use("VSEC_4");
+
+db.VSEC_4.insertOne({
+    name:"Anuj",
+    Div:"A",
+    branch: "IT",
+    roll_no: 110
+})
+
+db.VSEC_4.insertMany([
+    {
+        name:"Pranav",
+        Div:"A",
+        branch:"IT",
+        roll_no: 1
+    },
+    {
+        name:"Parthmesh",
+        Div:"B",
+        branch:"IT",
+        roll_no: 107
+    },
+    {
+        name:"Yash",
+        Div:"B",
+        branch:"IT",
+        roll_no: 97
+    }
+
+])
+
+db.VSEC_4.findOne({name: "Anuj"});
+
+db.VSEC_4.updateOne(
+    { name: "Prathmesh" },
+    { $set: { age: 21 } }
+)
+
+db.VSEC_4.updateOne(
+    { name: "Anuj" },
+    { $set: { age: 21 } }
+)
+
+db.VSEC_4.updateOne(
+    { name: "Pranav" },
+    { $set: { age: 21 } }
+)

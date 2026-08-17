@@ -1,5 +1,5 @@
 document.getElementById("Marks").addEventListener("submit", function(event){
-  event.preventDefault();
+  event.preventDefault(); // not to perfrom default action 
 
  let physics = parseInt(document.getElementById("Phy").value) || 0;
   let chemistry = parseInt(document.getElementById("chem").value) || 0;
