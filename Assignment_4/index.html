@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KBTCOE's Login Page</title>
+    <title>KBTCOE Login Page</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <h1>Login Page</h1>
-
-    <form>
-        <label id="Username">
-            Enter Your Username: 
-            <input type="text" maxlength="20" minlength="8" placeholder="Enter Your Gmail.com ID" required style="width: 300px; height: 20px;">
+    <form id="loginForm">
+        <!-- Username -->
+        <label>
+            Enter Your Username:
         </label>
+        <br>
+
+        <input type="text" id="username" placeholder="Enter Your Gmail ID" maxlength="20" required>
         <br><br>
 
-        <label id="Password"> 
-            Enter Your Password :
-            <input type="password" maxlength="20" minlength="0" placeholder="Enter Your Password" required style="width: 300px; height: 20px;">
-        </label>
+        <!-- Password -->
+        <label>Enter Your Password:</label>
+        <br>
+
+        <input
+            type="password" id="password" placeholder="Enter Your Password" maxlength="20"required>
         <br><br>
 
-        <button type="submit">Log In</button>
+        <!-- Login Button -->
+        <button type="submit"> Log In </button>
     </form>
+    <!-- JavaScript -->
+    <script src="Script.js"></script>
 </body>
+
 </html>
