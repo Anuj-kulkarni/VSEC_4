@@ -1,0 +1,118 @@
+/* Remove default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page */
+body {
+    background: #111;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial;
+}
+
+/* Main area */
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+
+/* ---------------- TEXT ---------------- */
+
+.text {
+    position: absolute;
+
+    /* Put text in the center */
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: white;
+    font-size: 80px;
+    font-weight: bold;
+
+    /* Text stays behind blocks */
+    z-index: 1;
+}
+
+
+/* ---------------- BLOCKS ---------------- */
+
+.block {
+    width: 180px;
+    height: 180px;
+
+    position: absolute;
+
+    cursor: pointer;
+
+    /* Makes movement smooth */
+    transition: 0.5s;
+
+    /* Blocks stay in front of text */
+    z-index: 2;
+}
+
+
+/* Red block */
+.block1 {
+    top: 30%;
+    left: 35%;
+    background: red;
+}
+
+
+/* Blue block */
+.block2 {
+    top: 30%;
+    left: 50%;
+    background: blue;
+}
+
+
+/* Green block */
+.block3 {
+    top: 50%;
+    left: 35%;
+    background: green;
+}
+
+
+/* Yellow block */
+.block4 {
+    top: 50%;
+    left: 50%;
+    background: yellow;
+}
+
+
+/* ---------------- WHEN CLICKED ---------------- */
+
+
+/* Red moves up and left */
+.block1.open {
+    transform: translate(-100px, -100px);
+}
+
+
+/* Blue moves up and right */
+.block2.open {
+    transform: translate(100px, -100px);
+}
+
+
+/* Green moves down and left */
+.block3.open {
+    transform: translate(-100px, 100px);
+}
+
+
+/* Yellow moves down and right */
+.block4.open {
+    transform: translate(100px, 100px);
+}
