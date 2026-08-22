@@ -1,13 +1,13 @@
 use("VSEC_4");
 
-db.VSEC_4.insertOne({
+db.students.insertOne({
     name:"Anuj",
     Div:"A",
     branch: "IT",
     roll_no: 110
 })
 
-db.VSEC_4.insertMany([
+db.students.insertMany([
     {
         name:"Pranav",
         Div:"A",
@@ -29,14 +29,14 @@ db.VSEC_4.insertMany([
 
 ])
 
-db.VSEC_4.findOne({name: "Anuj"});
+db.students.findOne({name: "Anuj"});
 
-db.VSEC_4.updateOne(
+db.students.updateOne(
     { name: "Prathmesh" },
     { $set: { age: 21 } }
 )
 
-db.VSEC_4.updateOne(
+db.students.updateOne(
     { name: "Anuj" },
     { $set: { age: 21 } }
 )
@@ -45,3 +45,17 @@ db.VSEC_4.updateOne(
     { name: "Pranav" },
     { $set: { age: 21 } }
 )
+
+db.VSEC_4.updateOne(
+    { name: "Yash" },
+    { $set: { marks: 95 } }
+)
+
+db.students.updateMany(
+    { marks: { $lt: 90 } },
+    { $inc: { marks: 5 } }
+)
+
+db.students.deleteOne({ id: 3 })
+
+db.students.deleteOne({ name: "Yash" })

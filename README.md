@@ -13,3 +13,14 @@ Assignment No 3:
 
 Assignment No 4:
   Make a website which will Take Username and password for Login and shift user from Login page to other page using HTML, CSS and JavaScript.
+
+
+Assignment No 5:
+  Part A:
+  Make a website which have 4 different color blocks which when clicked move away and show the text Hii!!.
+
+  Part B:
+  Installation of MongoDB on local System and write code for basic CRUD operations, Searching (linear, Binary), and Basic Sorting algorithms.
+
+Assignment No 6:
+  
