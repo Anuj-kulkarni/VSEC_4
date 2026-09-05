@@ -23,4 +23,4 @@ Assignment No 5:
   Installation of MongoDB on local System and write code for basic CRUD operations, Searching (linear, Binary), and Basic Sorting algorithms.
 
 Assignment No 6:
-  
+  Student Management REST API using Node.js and Express.js
