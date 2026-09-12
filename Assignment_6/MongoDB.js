@@ -10,83 +10,60 @@ const client = new MongoClient("mongodb://127.0.0.1:27017");
 
 let students;
 
-async function connectDB() {
-    try {
-        await client.connect();
-
-        const db = client.db("college");
-        students = db.collection("students");
-
-        console.log("MongoDB Connected");
-
-        app.listen(3000, () => {
-            console.log("Server running on port 3000");
-        });
-
-    } catch (error) {
-        console.log("Database Connection Error:", error);
-    }
-}
-
-connectDB();
-
-
-// =====================================
-// 1. CREATE - Add Student
-// =====================================
-
 app.post("/addStudent", async (req, res) => {
-
     try {
+        console.log("Received Body:", req.body);
+
+        // Make sure body is not empty
+        if (!req.body || Object.keys(req.body).length === 0) {
+            return res.status(400).json({
+                message: "Student data is required"
+            });
+        }
 
         const result = await students.insertOne(req.body);
 
-        res.json({
+        res.status(201).json({
             message: "Student Added Successfully",
             id: result.insertedId
         });
 
     } catch (error) {
+        console.log("POST Error:", error);
 
         res.status(500).json({
-            message: "Error Adding Student"
+            message: "Error Adding Student",
+            error: error.message
         });
-
     }
 });
 
-
-// =====================================
-// 2. READ - Get All Students
-// =====================================
-
 app.get("/Students", async (req, res) => {
-
     try {
-
-        const data = await students.find().toArray();
+        const data = await students.find({}).toArray();
 
         res.json(data);
 
     } catch (error) {
+        console.log("GET Error:", error);
 
         res.status(500).json({
-            message: "Error Fetching Students"
+            message: "Error Fetching Students",
+            error: error.message
         });
-
     }
 });
 
-
-// =====================================
-// 3. READ - Get One Student
-// =====================================
-
 app.get("/Students/:id", async (req, res) => {
-
     try {
-
         const id = req.params.id;
+
+        // Validate ObjectId before using it
+        if (!ObjectId.isValid(id)) {
+            return res.status(400).json({
+                message: "Invalid Student ID"
+            });
+        }
 
         const student = await students.findOne({
             _id: new ObjectId(id)
@@ -101,24 +78,30 @@ app.get("/Students/:id", async (req, res) => {
         res.json(student);
 
     } catch (error) {
+        console.log("GET ONE Error:", error);
 
-        res.status(400).json({
-            message: "Invalid Student ID"
+        res.status(500).json({
+            message: "Error Fetching Student",
+            error: error.message
         });
-
     }
 });
 
-
-// =====================================
-// 4. UPDATE - Update Student
-// =====================================
-
 app.put("/Students/:id", async (req, res) => {
-
     try {
-
         const id = req.params.id;
+
+        if (!ObjectId.isValid(id)) {
+            return res.status(400).json({
+                message: "Invalid Student ID"
+            });
+        }
+
+        if (!req.body || Object.keys(req.body).length === 0) {
+            return res.status(400).json({
+                message: "Updated student data is required"
+            });
+        }
 
         const result = await students.updateOne(
             {
@@ -140,24 +123,24 @@ app.put("/Students/:id", async (req, res) => {
         });
 
     } catch (error) {
+        console.log("PUT Error:", error);
 
-        res.status(400).json({
-            message: "Invalid Student ID"
+        res.status(500).json({
+            message: "Error Updating Student",
+            error: error.message
         });
-
     }
 });
 
-
-// =====================================
-// 5. DELETE - Delete Student
-// =====================================
-
 app.delete("/Students/:id", async (req, res) => {
-
     try {
-
         const id = req.params.id;
+
+        if (!ObjectId.isValid(id)) {
+            return res.status(400).json({
+                message: "Invalid Student ID"
+            });
+        }
 
         const result = await students.deleteOne({
             _id: new ObjectId(id)
@@ -174,10 +157,33 @@ app.delete("/Students/:id", async (req, res) => {
         });
 
     } catch (error) {
+        console.log("DELETE Error:", error);
 
-        res.status(400).json({
-            message: "Invalid Student ID"
+        res.status(500).json({
+            message: "Error Deleting Student",
+            error: error.message
         });
-
     }
 });
+
+async function connectDB() {
+    try {
+        await client.connect();
+
+        const db = client.db("college");
+        students = db.collection("students");
+
+        console.log("MongoDB Connected");
+
+        app.listen(3000, () => {
+            console.log("Server running on http://localhost:3000");
+        });
+
+    } catch (error) {
+        console.log("Database Connection Error:", error);
+    }
+}
+
+connectDB();
+
+
