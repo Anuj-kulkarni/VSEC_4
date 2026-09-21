@@ -90,7 +90,7 @@ app.get("/Students/:id", async (req, res) => {
 app.put("/Students/:id", async (req, res) => {
     try {
         const id = req.params.id;
-
+    
         if (!ObjectId.isValid(id)) {
             return res.status(400).json({
                 message: "Invalid Student ID"
@@ -133,7 +133,8 @@ app.put("/Students/:id", async (req, res) => {
 });
 
 app.delete("/Students/:id", async (req, res) => {
-    try {
+    try 
+    {
         const id = req.params.id;
 
         if (!ObjectId.isValid(id)) {
