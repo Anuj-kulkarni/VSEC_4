@@ -1,0 +1,84 @@
+.counter-page {
+  align-items: center;
+  background: linear-gradient(135deg, #eef6f9 0%, #f8fbf2 100%);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.counter-panel {
+  background: #ffffff;
+  border: 1px solid #d7e2e5;
+  border-radius: 8px;
+  box-shadow: 0 18px 50px rgba(30, 55, 70, 0.12);
+  max-width: 460px;
+  padding: 36px;
+  text-align: center;
+  width: 100%;
+}
+
+.counter-kicker {
+  color: #407070;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.counter-panel h1 {
+  color: #18262b;
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.counter-value {
+  color: #1b4850;
+  font-size: clamp(4rem, 18vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+  margin: 32px 0;
+}
+
+.counter-actions {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.counter-actions button {
+  background: #1f6f78;
+  border: 0;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  min-height: 48px;
+  padding: 12px 14px;
+}
+
+.counter-actions button:hover,
+.counter-actions button:focus-visible {
+  background: #185860;
+}
+
+.counter-actions .secondary {
+  background: #3d4651;
+}
+
+.counter-actions .secondary:hover,
+.counter-actions .secondary:focus-visible {
+  background: #2b333b;
+}
+
+@media (max-width: 520px) {
+  .counter-panel {
+    padding: 28px 20px;
+  }
+
+  .counter-actions {
+    grid-template-columns: 1fr;
+  }
+}
