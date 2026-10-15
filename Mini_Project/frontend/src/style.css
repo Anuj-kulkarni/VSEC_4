@@ -1,28 +1,97 @@
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
+  background: #f5f5f5;
 }
 
-.container {
-  width: 90%;
-  max-width: 600px;
-  margin: 80px auto;
-  text-align: center;
+button {
+  padding: 9px 14px;
+  border: 0;
+  cursor: pointer;
 }
 
 input {
-  width: 70%;
   padding: 10px;
   box-sizing: border-box;
 }
 
-button {
-  padding: 10px 15px;
-  margin: 5px;
-  cursor: pointer;
+.login {
+  width: 320px;
+  margin: 100px auto;
+  padding: 25px;
+  background: white;
+  text-align: center;
+}
+
+.login input {
+  width: 100%;
+  margin: 6px 0;
+}
+
+.login button {
+  width: 100%;
+  margin: 8px 0;
+}
+
+.dashboard {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cards {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.card, .box {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  min-width: 150px;
+}
+
+.card strong {
+  display: block;
+  font-size: 28px;
+}
+
+.card span {
+  color: #666;
+}
+
+.box form {
+  display: flex;
+  gap: 8px;
+}
+
+.box form input {
+  flex: 1;
 }
 
 .result {
-  margin-top: 25px;
+  margin-top: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
 }
 
 .error {

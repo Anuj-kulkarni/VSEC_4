@@ -8,14 +8,43 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
-// Simple in-memory storage.
-// Data will reset when the server restarts.
+// Basic demo storage. Data resets when the server restarts.
+const users = new Map();
 const urls = new Map();
+
+// Demo account
+users.set("demo@example.com", { password: "123456", name: "Demo User" });
 
 function createCode() {
   return crypto.randomBytes(4).toString("base64url");
 }
 
+// Login
+app.post("/api/login", (req, res) => {
+  const { email, password } = req.body;
+  const user = users.get(email);
+
+  if (!user || user.password !== password) {
+    return res.status(401).json({ message: "Invalid email or password" });
+  }
+
+  res.json({
+    message: "Login successful",
+    user: { email, name: user.name }
+  });
+});
+
+// Get dashboard data
+app.get("/api/urls", (req, res) => {
+  const list = [...urls.values()];
+  res.json({
+    total: list.length,
+    clicks: list.reduce((sum, item) => sum + item.clicks, 0),
+    urls: list
+  });
+});
+
+// Create short URL
 app.post("/api/shorten", (req, res) => {
   const { originalUrl } = req.body;
 
@@ -30,14 +59,18 @@ app.post("/api/shorten", (req, res) => {
   }
 
   const code = createCode();
-  urls.set(code, { originalUrl, clicks: 0 });
-
-  res.json({
+  const item = {
+    code,
+    originalUrl,
     shortUrl: `http://localhost:${PORT}/${code}`,
-    code
-  });
+    clicks: 0
+  };
+
+  urls.set(code, item);
+  res.json(item);
 });
 
+// Redirect
 app.get("/:code", (req, res) => {
   const item = urls.get(req.params.code);
 
@@ -47,20 +80,6 @@ app.get("/:code", (req, res) => {
 
   item.clicks++;
   res.redirect(item.originalUrl);
-});
-
-app.get("/api/stats/:code", (req, res) => {
-  const item = urls.get(req.params.code);
-
-  if (!item) {
-    return res.status(404).json({ message: "Short URL not found" });
-  }
-
-  res.json({
-    originalUrl: item.originalUrl,
-    shortUrl: `http://localhost:${PORT}/${req.params.code}`,
-    clicks: item.clicks
-  });
 });
 
 app.listen(PORT, () => {
