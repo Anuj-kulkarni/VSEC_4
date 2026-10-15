@@ -1,30 +1,24 @@
-# Basic URL Shortener
+# URL Shortener - Login + Dashboard
 
-A beginner-friendly URL shortener using React, Node.js and Express.
+## Features
 
-## Project structure
+- Login page
+- Simple demo authentication
+- Dashboard
+- URL shortening
+- Short URL redirect
+- Total URL count
+- Total click count
+- Recent URLs table
+- Copy short URL
+- Minimal CSS
 
-url-shortener/
-├── backend/
-│   ├── server.js
-│   ├── package.json
-│   └── README.md
-├── frontend/
-│   ├── src/
-│   │   ├── main.jsx
-│   │   └── style.css
-│   ├── index.html
-│   ├── package.json
-│   └── README.md
-└── README.md
+## Demo login
 
-## Requirements
+Email: demo@example.com
+Password: 123456
 
-Install Node.js.
-
-## 1. Start backend
-
-Open a terminal:
+## Run backend
 
 ```bash
 cd backend
@@ -32,10 +26,9 @@ npm install
 npm start
 ```
 
-Backend:
-http://localhost:5000
+Backend runs at http://localhost:5000
 
-## 2. Start frontend
+## Run frontend
 
 Open another terminal:
 
@@ -45,20 +38,10 @@ npm install
 npm run dev
 ```
 
-Open the URL shown by Vite, normally:
-http://localhost:5173
-
-## How it works
-
-1. Enter a long URL.
-2. React sends it to the Express API.
-3. Express creates a random short code.
-4. The backend stores the original URL.
-5. The frontend displays the short URL.
-6. Opening the short URL redirects to the original URL.
+Open the Vite URL, normally http://localhost:5173
 
 ## Important
 
-This is intentionally a basic learning project. URLs are stored only in server memory, so they disappear when the backend restarts.
+This is a learning/demo project. Authentication is intentionally simple and does not use JWT or a permanent database. User and URL data are stored in memory and reset when the backend restarts.
 
-For a more realistic project, replace the in-memory Map with MongoDB and add authentication, URL expiration, analytics and rate limiting.
+For a production version, use MongoDB, hashed passwords, JWT/session authentication, validation, rate limiting, and HTTPS.
