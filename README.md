@@ -1,116 +1,63 @@
-# VSEC - 4 Course SEM 5
+# VSEC Semester 5 Assignments
 
-Course Co-Ordinator: Ms. D.R Gatne
+Course: VSEC – 4 Course, Semester 5
 
-This repository contains all VSEC assignment work, including HTML/CSS/JavaScript tasks, Node.js API work, MongoDB CRUD operations, and React applications.
+Course coordinator: Ms. D. R. Gatne
+
+This repository collects the coursework and mini project for the course. Each assignment is kept in its own folder.
 
 ## Assignments
 
-### Assignment No 1
-Make your own website using basic HTML, CSS, and JavaScript tags in VS Code.
+| Folder | Work included |
+| --- | --- |
+| [`Assignment_1`](Assignment_1/) | Basic HTML pages: a login page, home page, and linked CSS files. |
+| [`Assignment_2`](Assignment_2/) | Four-block click interaction page (`index.html`) and its stylesheet. |
+| [`Assignment_3`](Assignment_3/) | Marksheet form page and screenshots (`Image_1.png`, `Image_2.png`). |
+| [`Assignment_4`](Assignment_4/) | Login form page with a JavaScript reference in `index.html`. |
+| [`Assignment_5`](Assignment_5/) | MongoDB shell examples for inserting, finding, updating, and deleting student documents (`Quries.txt`), with recorded output in `Output.txt`. |
+| [`Assignment_6`](Assignment_6/) | Student marks entry page with a results table and JavaScript reference in `index.html`. |
+| [`Assignment_7`](Assignment_7/) | In-memory Express student API in [`Api.js`](Assignment_7/Api.js). |
+| [`Assignment_8`](Assignment_8/) | MongoDB-backed Express student API in [`MongoDB.js`](Assignment_8/MongoDB.js), using the `college.students` collection. |
+| [`Assignment_9/app`](Assignment_9/app/) | React counter using `useState`, with increment, decrement, and reset buttons. |
+| [`Assignment_10`](Assignment_10/) | React text input that updates an `h1` preview as the user types. |
+| [`Assignment_11`](Assignment_11/) | React Daily Mood Card with name and mood inputs, a live preview, and reset. |
+| [`Mini_Project`](Mini_Project/) | URL shortener with a React/Vite frontend and Express backend. Shortened URLs are kept in backend memory. |
 
-### Assignment No 2
-Create a GitHub account and push code on GitHub using the VS Code terminal.
+## Running the React apps
 
-### Assignment No 3
-Create a website that takes student marks as input, calculates total marks and percentage, and displays the student result in a table.
-
-### Assignment No 4
-Create a login website that takes username and password, then shifts the user from the login page to another page using HTML, CSS, and JavaScript.
-
-### Assignment No 5
-Part A: Create a website with four different color blocks. When clicked, the blocks move away and show the text "Hii!!".
-
-Part B: Install MongoDB on the local system and write code for basic CRUD operations, searching, and sorting algorithms.
-
-### Assignment No 6
-Student Management REST API using Node.js and Express.js.
-
-### Assignment No 7
-Student API using Express.js with basic routes for:
-
-- Get students
-- Add student
-- Update student
-- Delete student
-
-Main file: `Assignment_7/Api.js`
-
-### Assignment No 8
-MongoDB Student CRUD API using Express.js and MongoDB.
-
-Main file: `Assignment_8/MongoDB.js`
-
-### Assignment No 9
-React counter app using the `useState` hook.
-
-Features:
-
-- Add +1 button
-- Minus -1 button
-- Reset button
-- Displays the counter value dynamically
-
-Project folder: `Assignment_9/app`
-
-### Assignment No 10
-React app that takes text input from the user and displays the text in `h1` format.
-
-Project folder: `Assignment_10`
-
-### Assignment No 11
-React `useState` mini app called Daily Mood Card.
-
-Features:
-
-- Takes user name input
-- Lets user choose a mood
-- Displays the message live
-- Reset button
-- Basic CSS styling
-
-Project folder: `Assignment_11`
-
-### Assignment No 12
-Folder created for the next assignment.
-
-### Mini Project
-Mini project folder contains a starter HTML file for a Keyboard Detector project.
-
-Project folder: `Mini_Project`
-
-## How To Run React Assignments
-
-For `Assignment_10` and `Assignment_11`, open the assignment folder in terminal and run:
-
-```bash
-npm install
-npm run dev
-```
-
-For `Assignment_9`, go inside the app folder first:
+The React projects use Create React App. Open a terminal in the relevant project folder, install dependencies, and start the development server:
 
 ```bash
 cd Assignment_9/app
 npm install
+npm start
+```
+
+Use the same commands from `Assignment_10` or `Assignment_11` to run those apps. The development server prints the local URL when it starts (usually `http://localhost:3000`).
+
+## Running the mini project
+
+Start the backend and frontend in separate terminals:
+
+```bash
+cd Mini_Project/backend
+npm install
+npm start
+```
+
+```bash
+cd Mini_Project/frontend
+npm install
 npm run dev
 ```
 
-The React app will open on a local development server such as:
+The backend listens on port `5000`; Vite prints the frontend URL, usually `http://localhost:5173`. The backend stores shortened URLs in memory, so they are cleared when it restarts.
 
-```text
-http://localhost:3000
-```
+## API assignment notes
 
-If port 3000 is already busy, React may use another port.
+- Assignment 7 defines `GET /Students`, `POST /addStudent`, `PUT /Students/:id`, and `DELETE /delete/:id`. It listens on port `3000` and stores records in memory.
+- Assignment 8 defines `GET /Students`, `GET /Students/:id`, `POST /addStudent`, `PUT /Students/:id`, and `DELETE /Students/:id`. It connects to MongoDB at `mongodb://127.0.0.1:27017` and listens on port `3000` after connecting. Start a local MongoDB server before running it.
 
-## Technologies Used
+## Technologies represented
 
-- HTML
-- CSS
-- JavaScript
-- Node.js
-- Express.js
-- MongoDB
-- React JS
-- React `useState` hook
+HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB.
